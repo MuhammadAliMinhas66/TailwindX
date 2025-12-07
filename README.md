@@ -1,93 +1,72 @@
-Tailwind Components Hub — MERN + Auth0
+# Tailwind Components Hub — MERN + Auth0
 
-A custom-built Tailwind Component Library Platform developed using the MERN stack.
-This application allows a single admin (authenticated through Auth0 using my Gmail) to upload, manage, and organize reusable React + Tailwind UI components.
-Users can browse, view live previews, copy component code, and read setup instructions.
+A custom-built Tailwind Component Library Platform developed using the MERN stack. This application provides a private admin dashboard (secured via Auth0 using my Gmail) where I can upload and manage React + Tailwind UI components. Users can browse components, view live previews, copy the code, and read installation and usage instructions.
 
-Project Overview
+## Overview
 
-Admin-only login using Auth0
+This project includes:
 
-Secure dashboard to upload React + Tailwind components
+- **Admin-only authentication** using Auth0
+- A **secure dashboard** for uploading React + Tailwind components
+- A **public catalog** where users can:
+  - View live rendered previews of components
+  - Copy JSX/Tailwind code blocks
+  - Read installation and usage setup
+- A clean and responsive UI inspired by modern component libraries
+- **No inline editing** — strictly preview and copy functionality
 
-Public catalog where users can:
+## Features
 
-View the rendered preview of each component
+- ✅ Private admin panel with Auth0 login
+- ✅ Component upload system (title, category, description, code, usage guide)
+- ✅ Real-time rendered preview of components
+- ✅ Syntax-highlighted code display
+- ✅ One-click copy button for easy code usage
+- ✅ Category-based component listing
+- ✅ Responsive and minimal design
+- ✅ MERN stack architecture with clean separation of backend and frontend
 
-Copy the JSX/Tailwind code
+## Tech Stack
 
-Read installation and usage instructions
+### Frontend
+- **React**
+- **Tailwind CSS**
+- **Axios**
+- **React Router**
 
-Clean, responsive UI inspired by modern component libraries
+### Backend
+- **Node.js**
+- **Express.js**
+- **MongoDB** (Mongoose)
 
-No live editing — only preview and code display
+### Authentication
+- **Auth0** (restricted to a single admin account)
 
-Features
+## Use Cases
 
-Private admin panel protected with Auth0
+- Personal library for reusable React + Tailwind components
+- Self-hosted alternative to platforms like ReactBits, Tailwind UI, and ShadCN
+- Public-facing documentation for component previews and usage instructions
 
-Component uploading with title, category, code, and documentation fields
+## Project Structure
+```
+/client
+  /src
+    /components
+    /pages
+    /styles
+    /utils
+/server
+  /controllers
+  /routes
+  /models
+  /middleware
+```
 
-Live rendered preview of React components
+## Purpose
 
-Syntax-highlighted code blocks
+The goal of this project is to create a self-managed platform for storing, organizing, and showcasing my custom React + Tailwind components. It allows me to upload components privately while giving public users an easy way to preview, understand, and copy them into their own projects.
 
-One-click code copy functionality
-
-Organized components by categories
-
-Fully responsive frontend
-
-MERN architecture with clean separation between client and server
-
-Tech Stack
-
-Frontend
-
-React
-
-Tailwind CSS
-
-Axios
-
-React Router
-
-Backend
-
-Node.js
-
-Express.js
-
-MongoDB with Mongoose
-
-Authentication
-
-Auth0 (restricted to a single admin account)
-
-Use Cases
-
-A personal library of reusable React + Tailwind components
-
-A self-hosted alternative to sites like ReactBits, TailwindUI, or ShadCN
-
-A documentation-style platform for showcasing custom UI components
-
-Project Structure (Simplified)
-client/
-  src/
-    components/
-    pages/
-    utils/
-server/
-  routes/
-  controllers/
-  models/
-  middleware/
-
-Purpose
-
-This project serves as a personal, self-managed Tailwind UI component hub where I can upload custom components and share them in a structured, easy-to-browse format. The public-facing interface allows developers to preview components and integrate them into their projects quickly.
-
-License
+## License
 
 MIT License
