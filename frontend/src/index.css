@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+  animation: fadeIn 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  display: flex;
+  animation: scrollLeft 30s linear infinite;
+}
+
+.animate-scroll-left:hover {
+  animation-play-state: paused;
+}
+
+@keyframes morph1 {
+  0%, 100% {
+    d: path("M0,80 Q360,20 720,80 T1440,80 L1440,160 L0,160 Z");
+  }
+  50% {
+    d: path("M0,80 Q360,140 720,80 T1440,80 L1440,160 L0,160 Z");
+  }
+}
+
+@keyframes morph2 {
+  0%, 100% {
+    d: path("M0,100 Q360,40 720,100 T1440,100 L1440,160 L0,160 Z");
+  }
+  50% {
+    d: path("M0,100 Q360,160 720,100 T1440,100 L1440,160 L0,160 Z");
+  }
+}
+
+@keyframes morph3 {
+  0%, 100% {
+    d: path("M0,120 Q360,60 720,120 T1440,120 L1440,160 L0,160 Z");
+  }
+  50% {
+    d: path("M0,120 Q360,180 720,120 T1440,120 L1440,160 L0,160 Z");
+  }
+}
+
+.animate-morph-1 {
+  animation: morph1 12s ease-in-out infinite;
+}
+
+.animate-morph-2 {
+  animation: morph2 10s ease-in-out infinite;
+}
+
+.animate-morph-3 {
+  animation: morph3 14s ease-in-out infinite;
+}
