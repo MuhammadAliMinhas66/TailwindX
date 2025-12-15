@@ -315,22 +315,14 @@ function ComponentCard({ component, index }) {
         >
           <div className="relative z-10 w-full h-full flex flex-col p-6">
             
-            {/* Preview Image - Much Better! */}
-            <div className="flex-1 flex items-center justify-center mb-4 overflow-hidden rounded-2xl bg-gray-900 border border-gray-800">
-              {component.previewImage ? (
-                <img 
-                  src={component.previewImage} 
-                  alt={component.name}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="flex items-center justify-center w-full h-full text-gray-500">
-                  <div className="text-center">
-                    <div className="text-4xl mb-2">📦</div>
-                    <div className="text-sm">No Preview</div>
-                  </div>
-                </div>
-              )}
+            {/* Live Preview - Centered */}
+            <div className="flex-1 flex items-center justify-center mb-4 overflow-hidden rounded-2xl">
+              <LivePreview 
+                code={component.jsxCode} 
+                showBorder={false}
+                minHeight="auto"
+                className="w-full h-full scale-75"
+              />
             </div>
 
             {/* Component Info */}

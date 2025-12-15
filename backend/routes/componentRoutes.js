@@ -7,10 +7,15 @@ const router = express.Router();
 // Get all components with optional filters (PUBLIC)
 router.get('/', async (req, res) => {
   try {
-    const { category, search } = req.query;
+    const { category, search, type } = req.query;
     
     // Build query object
     let query = {};
+    
+    // Filter by type if provided (component or template)
+    if (type) {
+      query.type = type;
+    }
     
     // Filter by category if provided
     if (category) {
@@ -54,7 +59,7 @@ router.get('/:id', async (req, res) => {
 // Create new component (ADMIN ONLY)
 router.post('/', isAuthenticated, async (req, res) => {
   try {
-    const { name, category, tags, jsxCode, previewImage } = req.body;
+    const { name, category, tags, jsxCode, previewImage, type, description, howToUse } = req.body;
     
     // Validate required fields
     if (!name || !category || !jsxCode) {
@@ -63,18 +68,22 @@ router.post('/', isAuthenticated, async (req, res) => {
       });
     }
     
-    // Create new component
+    // Create new component with all fields
     const component = await Component.create({
       name,
       category,
       tags: tags || [],
       jsxCode,
-      previewImage: previewImage || ''
+      previewImage: previewImage || '',
+      type: type || 'component', // Default to 'component' if not provided
+      description: description || '',
+      howToUse: howToUse || ''
     });
     
     res.status(201).json(component);
     
   } catch (error) {
+    console.error('Create component error:', error);
     res.status(500).json({ error: 'Failed to create component' });
   }
 });
@@ -82,12 +91,24 @@ router.post('/', isAuthenticated, async (req, res) => {
 // Update component (ADMIN ONLY)
 router.put('/:id', isAuthenticated, async (req, res) => {
   try {
-    const { name, category, tags, jsxCode, previewImage } = req.body;
+    const { name, category, tags, jsxCode, previewImage, type, description, howToUse } = req.body;
+    
+    // Build update object with all fields
+    const updateData = {
+      name,
+      category,
+      tags,
+      jsxCode,
+      previewImage,
+      type,
+      description,
+      howToUse
+    };
     
     // Find and update component
     const component = await Component.findByIdAndUpdate(
       req.params.id,
-      { name, category, tags, jsxCode, previewImage },
+      updateData,
       { new: true, runValidators: true }
     );
     
@@ -98,6 +119,7 @@ router.put('/:id', isAuthenticated, async (req, res) => {
     res.json(component);
     
   } catch (error) {
+    console.error('Update component error:', error);
     res.status(500).json({ error: 'Failed to update component' });
   }
 });
