@@ -6,7 +6,7 @@ function HowItWorks() {
     {
       number: "01",
       title: "Browse",
-      description: "Explore our library of components and templates"
+      description: "Explore it and you dont need to use Other UI Libraries"
     },
     {
       number: "02",
@@ -16,7 +16,7 @@ function HowItWorks() {
     {
       number: "03",
       title: "Ship",
-      description: "Paste into your project and customize as needed"
+      description: "Paste and customize accordingly"
     }
   ];
 
